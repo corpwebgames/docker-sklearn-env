@@ -1,0 +1,13 @@
+language: python
+python:
+- 2.7
+services:
+- docker
+install:
+- docker build -t sklearn-env .
+- docker run --entrypoint /bin/bash --name sklearn-env sklearn-env -c "pip list"
+script:
+- docker ps -a
+notifications:
+  slack:
+    secure: pqUYaO5TGrNC1658oG6M6zjy4mtzRqSMl0mrh9YWDOxQA9yLXn9Un3SL7UXl6jSIk4Fs/hrWiMG1lMRwNNRZlG7w7uozSwel1QRGdBg0+NI8sY3D3x0aejzNJAiBcRrLr20m4XetXni9O9pkOnEJ2xGq0+ptXnCrSdtnbRWnRqGM4vaaes/BAdU6G0YRxpW6Sozltc+iZLxm+R0sZCBP6Wtjcoeo2w7ITbXPByLc1KzfOeI2etsHC/FCXLKMxBvQqJpH4gM93f5v4pJwDM9FJ8vcI7gvgKLVGppuQdYeGXmZ7OQU/gGUwE7RTrZDENt0Vl4Nm4KC8fg6v7lj8JcvI6LlTpfHEZgwca+sDMB9vPFmtwDwZGK3VMsZ18admFt0aQV1GBe+/aiVkT6DM+nFj8hpLAE8XI8UAsBHMjEeo4kt/w6YCRNKabAChGYsPg67oBkP8uDJNMA+GOTuPTjqk9J8LGoNkGtBD9ysK2inClhbMrlE4juT5UpE1H3T9JdA4qcOtJm/FaBmnwjVkXWtspsdqH24KBpGKA+gP/9D3TW64rayBOU0V0zsxzR1FOibMOPbHdycRQHyPblzfdbUbBy7NSZd23jkBOQsLo7Af2jYKtlsEVfK5uQ/O8FKqzOm1YV/GJuG7N9Rv6NSjAOHNDxVdAEgNVl0+pcpdSePKkc=
